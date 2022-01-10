@@ -8,6 +8,7 @@ namespace test5.Model
         public int Id { get; set; }
         public string? name { get; set; }
         public string? description { get; set; }
+        //public virtual FundValues FundValues { get; set; }
         public List<FundValues>? FundValues { get; set; }
 
     }

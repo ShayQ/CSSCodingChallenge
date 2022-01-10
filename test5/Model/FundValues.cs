@@ -9,6 +9,7 @@ namespace test5.Model
         [Key]
         //[ForeignKey("Fund")]
         public int fund_id { get; set; }
+        [System.Text.Json.Serialization.JsonIgnore]
         public Fund? Fund { get; set; }
 
         [DataType(DataType.Date)]
