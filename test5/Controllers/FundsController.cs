@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using test5.Model;
+using CSSCodingChallenge.Model;
 
-namespace test5.Controllers
+namespace CSSCodingChallenge.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

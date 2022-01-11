@@ -4,7 +4,7 @@
 
 namespace CSSCodingChallenge.Migrations
 {
-    public partial class testingchangetofund : Migration
+    public partial class finalmodel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

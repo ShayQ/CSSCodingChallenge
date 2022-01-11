@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace test5.Model
+namespace CSSCodingChallenge.Model
 {
     public class Fund
     {

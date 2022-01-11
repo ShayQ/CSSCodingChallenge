@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace test5.Migrations
+namespace CSSCodingChallenge.Migrations
 {
     public partial class addedmorefundvalueseeddata : Migration
     {

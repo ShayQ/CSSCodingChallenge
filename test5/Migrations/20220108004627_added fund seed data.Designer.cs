@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using test5.Model;
+using CSSCodingChallenge.Model;
 
 #nullable disable
 
-namespace test5.Migrations
+namespace CSSCodingChallenge.Migrations
 {
     [DbContext(typeof(DBContext))]
     [Migration("20220108004627_added fund seed data")]

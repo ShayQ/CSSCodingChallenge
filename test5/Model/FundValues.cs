@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace test5.Model
+namespace CSSCodingChallenge.Model
 {
     public class FundValues
     {

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using test5.Model;
+using CSSCodingChallenge.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
