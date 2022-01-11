@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace CSSCodingChallenge.Model
+namespace WebAPI.Model
 {
     public class DBContext : DbContext
     {

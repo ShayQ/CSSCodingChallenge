@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace CSSCodingChallenge.Migrations
+namespace WebAPI.Migrations
 {
     public partial class testingchangetofund : Migration
     {

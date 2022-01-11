@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace CSSCodingChallenge.Migrations
+namespace WebAPI.Migrations
 {
     public partial class test1 : Migration
     {

@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using CSSCodingChallenge.Model;
+using WebAPI.Model;
 
 #nullable disable
 
-namespace CSSCodingChallenge.Migrations
+namespace WebAPI.Migrations
 {
     [DbContext(typeof(DBContext))]
     partial class DBContextModelSnapshot : ModelSnapshot
