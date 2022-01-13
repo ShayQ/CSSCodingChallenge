@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using CSSCodingChallenge.Model;
+using WebAPI.Model;
 
-namespace CSSCodingChallenge.Controllers
+namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -23,7 +23,7 @@ namespace CSSCodingChallenge.Controllers
 
         // GET: api/Funds
         [HttpGet]
-        public IQueryable<Fund> GetFund()
+        public IQueryable<Fund> GetFunds()
         {
             var results = _context.Fund
                 .Include(f => f.FundValues)
@@ -41,18 +41,13 @@ namespace CSSCodingChallenge.Controllers
 
         // GET: api/Funds/5
         [HttpGet("{id}")]
-        public IQueryable<Fund> GetFund(int id)
+        public IQueryable<Fund> GetFundHistory(int id)
         {
             var results = _context.Fund
                 .Where(f => f.Id == id)
                 .Include(f => f.FundValues);
 
             return results;
-        }
-
-        private bool FundExists(int id)
-        {
-            return _context.Fund.Any(e => e.Id == id);
         }
     }
 }
