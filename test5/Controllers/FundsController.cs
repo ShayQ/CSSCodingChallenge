@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Funds
+        // get all funds showing latest fundvalues data if there is more than 1 and ignoring the fund if there is no fundvalues data
         [HttpGet]
         public IQueryable<Fund> GetFunds()
         {
@@ -39,7 +39,7 @@ namespace WebAPI.Controllers
             return results;
         }
 
-        // GET: api/Funds/5
+        // get all fundvalues data of 1 fund 
         [HttpGet("{id}")]
         public IQueryable<Fund> GetFundHistory(int id)
         {
