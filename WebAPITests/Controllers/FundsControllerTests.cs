@@ -21,6 +21,7 @@ namespace WebAPI.Controllers.Tests
                 //.UseInMemoryDatabase(databaseName: "Test") // cant use this as InMemory db is not relational.
                 .Options;
             var databaseContext = new DBContext(options);
+            databaseContext.Database.EnsureDeleted();
             databaseContext.Database.EnsureCreated();
 
             // create fund data to load for testing
@@ -56,27 +57,23 @@ namespace WebAPI.Controllers.Tests
         }
 
         //// test that the latest fund value is returned for GetFunds()
-        //[TestMethod()]
-        //public async Task GetFundsHistoryTest_FullHistoryReturned()
-        //{
-        //    var dbContext = await GetDatabaseContext();
-        //    var fundController = new FundsController(dbContext);
-        //    var fund = fundController.GetFunds()
-        //        .Where(f => f.name == "fund_2_values")
-        //        .Select(f => f.Id);
-        //    //Console.WriteLine("fund [{0}]", fund.FirstOrDefault());
-        //    var items = fundController.GetFundHistory(fund.FirstOrDefault());
-        //    //foreach (var item in items)
-        //    //{
-        //    //    Console.WriteLine("Id [{0}] | name [{1}] | values [{2}]", item.Id, item.name, item.FundValues.Count());
-        //    //}
-        //    Console.WriteLine("count: " + items.FirstOrDefault().FundValues.Count());
-        //    Assert.AreEqual(2, items.FirstOrDefault().FundValues.Count());
-        //}
+        [TestMethod()]
+        public async Task GetFundsTest_LatestDataReturned()
+        {
+            var dbContext = await GetDatabaseContext();
+            var fundController = new FundsController(dbContext);
+            var fund = fundController.GetFunds()
+                .Where(f => f.name == "fund_2_values")
+                .Select(f => f.Id);
+            var items = fundController.GetFundHistory(fund.FirstOrDefault());
+            var maxDate = items
+                .Select(f => f.FundValues.Max(v => v.value_date));
+            Assert.AreEqual(new DateTime(2021, 12, 31).Date, maxDate.FirstOrDefault().Date);
+        }
 
         // test that GetFundHistory() will return more than 1 fundValue
         [TestMethod()]
-        public async Task GetFundsTest_LatestDataReturned()
+        public async Task GetFundsHistoryTest_FullHistoryReturned()
         {
             // in GetDatabaseContext() fund2 was created with 2 fundValues entities. This test verifies that both are returned with GetFundHistory()
             var dbContext = await GetDatabaseContext();
