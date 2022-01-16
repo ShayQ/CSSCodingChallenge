@@ -35,7 +35,3 @@ A web application with below features, containing funds and their values history
 
 ## Deliverables
 A project with above implementation. If the project is in a runnable state and other dependencies are required (for example sql scripts for database structure), please include a short description of how to run it in `how-to-run.md`.
-
-
-connect https://localhost:7109/api/todoitems/1
-get
