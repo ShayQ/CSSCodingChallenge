@@ -8,6 +8,7 @@ namespace WebAPI.Model
     public class FundValues
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Name("fund_id")] // CSVHelper tag to map file headers to db columns
         public int fund_id { get; set; }
         [System.Text.Json.Serialization.JsonIgnore] // this is to ignore 'Fund' field of this table from the api call

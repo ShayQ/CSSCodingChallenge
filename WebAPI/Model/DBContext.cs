@@ -13,6 +13,7 @@ namespace WebAPI.Model
         }
         public virtual DbSet<Fund>? Fund { get; set; }
         public virtual DbSet<FundValues>? FundValues { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // set up foreign key relationship between Fund and FundValues
@@ -32,6 +33,10 @@ namespace WebAPI.Model
             //new FundValues { fund_id = 1, value_date = new DateTime(2021, 06, 30), value = 630 },
             //new FundValues { fund_id = 2, value_date = new DateTime(2021, 09, 30), value = 930 },
             //new FundValues { fund_id = 2, value_date = new DateTime(2021, 12, 31), value = 1231 });
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CSSCodingChallenge;Trusted_Connection=True;MultipleActiveResultSets=true");
         }
     }
 }

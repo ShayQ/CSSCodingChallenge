@@ -7,6 +7,7 @@ namespace WebAPI.Model
     public class Fund
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Name("fund_id")] // CSVHelper tag to map file headers to db columns
         public int Id { get; set; }
         [Name("fund_name")] // CSVHelper tag to map file headers to db columns
