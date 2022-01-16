@@ -17,8 +17,7 @@ namespace WebAPI.Controllers.Tests
         private async Task<DBContext> GetDatabaseContext()
         {
             var options = new DbContextOptionsBuilder<DBContext>()
-                //.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CSSCodingChallengeTesting;Trusted_Connection=True;MultipleActiveResultSets=true")
-                .UseInMemoryDatabase(databaseName: "Test")
+                .UseInMemoryDatabase(databaseName: "Testing-Database")
                 .Options;
             var databaseContext = new DBContext(options);
             databaseContext.Database.EnsureDeleted();

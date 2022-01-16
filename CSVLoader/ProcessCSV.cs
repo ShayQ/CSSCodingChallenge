@@ -46,7 +46,6 @@ namespace CSVProcess
                     {
                         fundSet.Add(new Fund { Id = fundId, name = read[1], description = read[2] });
                         fundValueSet.Add(new FundValues { fund_id = fundId, value_date = value_date, value = value_value });
-                        Console.WriteLine("Adding new Id [{0}]", fundId);
                         processedId.Add(fundId);
                         counter++;
                     }
@@ -59,7 +58,6 @@ namespace CSVProcess
                     fundSet.Clear();
                     fundValueSet.Clear();
                     databaseContext.SaveChanges();
-                    //Console.WriteLine("counter reset");
                     counter = 0;
                 }
             }
@@ -68,6 +66,7 @@ namespace CSVProcess
             databaseContext.AddRange(fundValueSet);
             databaseContext.SaveChanges();
             databaseContext.ChangeTracker.AutoDetectChangesEnabled = true;
+            Console.WriteLine("Finished");
         }
     }
 }

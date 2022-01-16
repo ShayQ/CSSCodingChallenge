@@ -26,6 +26,7 @@ namespace WebAPI.Model
             modelBuilder.Entity<FundValues>()
                 .HasKey(v => new { v.fund_id, v.value_date });
 
+            // Seed Data 
             //modelBuilder.Entity<Fund>().HasData(
             //    new Fund { Id = 1, name = "testName1", description = "testDescription1" },
             //    new Fund { Id = 2, name = "testName2", description = "testDescription2" });
