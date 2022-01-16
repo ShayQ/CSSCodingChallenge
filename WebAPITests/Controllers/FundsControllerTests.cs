@@ -63,12 +63,13 @@ namespace WebAPI.Controllers.Tests
             var dbContext = await GetDatabaseContext();
             var fundController = new FundsController(dbContext);
             var fund = fundController.GetFunds()
-                .Where(f => f.name == "fund_2_values")
-                .Select(f => f.Id);
-            var items = fundController.GetFundHistory(fund.FirstOrDefault());
-            var maxDate = items
-                .Select(f => f.FundValues.Max(v => v.value_date));
-            Assert.AreEqual(new DateTime(2021, 12, 31).Date, maxDate.FirstOrDefault().Date);
+                .Where(f => f.name == "fund_2_values");
+            var fundId = fund.Select(f => f.Id).FirstOrDefault();
+            var fundMaxDate = fund.Select(f => f.FundValues.FirstOrDefault().value_date).FirstOrDefault();
+            var items = fundController.GetFundHistory(fundId);
+            var maxDateDB = items
+                .Select(f => f.FundValues.Max(v => v.value_date)).FirstOrDefault();
+            Assert.AreEqual(fundMaxDate.Date, maxDateDB.Date);
         }
 
         // test that GetFundHistory() will return more than 1 fundValue
